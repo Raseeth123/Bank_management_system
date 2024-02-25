@@ -1,0 +1,48 @@
+class bank{
+    constructor(name,amtinacc){
+        this.name=name
+        this.amtinacc=amtinacc
+    }
+    withdraw(money){
+        if(this.amtinacc>=money){
+            console.log(`Amount $${money} is withdrawn from your account`)
+            this.amtinacc-=money
+            console.log(`Current bank balance is $${this.amtinacc}`)
+        }
+        else{
+            console.log(`Insufficient bank balance Your account has only $${this.amtinacc}`)
+        }
+    }
+    deposit(money){
+        this.amtinacc+=money
+        console.log('Amount deposited Successfully')
+        console.log(`Current bank balance is $${this.amtinacc}`)
+    }
+    
+    customerdetails(){
+        console.log(`Customer namer is ${this.name}`)
+        console.log(`Bank Balance is $${this.amtinacc}`)
+    }
+    
+}
+const bankclass=new bank('Raseeth',180000000)
+do{
+ console.log("1.Want to withdraw money--------Enter 1:")
+ console.log("2.Want to Deposit money --------Enter 2:")
+ console.log("3.Want to Know Customer Details-Enter 3:")
+ var a=prompt("Enter Your Choice:")
+ if(a==1){
+    var money=Number(prompt("Enter the amount:"))
+    bankclass.withdraw(money)
+ }
+ else if(a==2){
+     var money=Number(prompt("Enter the amount:"))
+     bankclass.deposit(money)
+ }
+ else{
+    bankclass.customerdetails()
+ }
+ 
+  console.log("Want to continue - Enter 1 or Enter anything:")
+  var runstatus=prompt("Enter Your choice:")
+}while(runstatus==1);
